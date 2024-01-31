@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/stylenavbarAdmin.css">
+
+    <style>
+        .left-aligned-text {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <%- include('../navbar/navbarAdmin.ejs') %>
+    </header>
+    
+    <!-- Main content -->
+    <div class="main-content">
+        <center>
+            <h1>แก้ไขข้อมูลสินค้า</h1>
+            <div class="container edit-form">
+                <form method="POST">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ProductID</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Detail</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td><input class="form-control" name="productsID" value="<%=data.productsID%>"></td>
+                                <td><input class="form-control" name="image" value="<%=data.image%>"></td>
+                                <td><input class="form-control" name="productName" value="<%=data.productName%>"></td>
+                                <td><input class="form-control" name="detail" value="<%=data.detail;%>"></td>
+                                <td><input class="form-control" name="price" value="<%=data.price%>"></td>
+                                <td><input class="form-control" name="stock" value="<%=data.stock%>"></td>
+                                <td><button type="button" class="btn btn-primary" onclick="confirmEdit()">Edit</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </center>
+    </div>
+    <script>
+        // JavaScript function for confirmation before editing
+        function confirmEdit() {
+            var confirmed = confirm("คุณต้องการแก้ไขรายการสินค้าใช่ไหม?");
+            if (confirmed) {
+                document.querySelector('form').submit();
+            }
+        }
+    </script>
+</body>
+
+</html>

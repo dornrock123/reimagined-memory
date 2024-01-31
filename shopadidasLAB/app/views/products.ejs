@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylenavbar.css">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+
+
+
+    <style>
+        /* สไตล์ของหน้าหลัก */
+
+        /* กำหนดแบบอักษรและขอบเขตให้กับทั้งหน้าเว็บ */
+        body {
+            font-family: Arial, sans-serif;
+            /* กำหนดแบบอักษร */
+            margin: 0;
+            /* ไม่มีขอบส่วนว่างที่เหลือในข้างของเว็บ */
+            padding: 0;
+            /* ไม่มีขอบส่วนว่างที่อยู่ข้างในของเว็บ */
+            background-color: #f0f0f0;
+            /* สีพื้นหลังของหน้าเว็บ */
+        }
+
+        /* สไตล์ของคอนเทนเนอร์ทั้งหมด */
+
+        /* จัดตำแหน่งและการแสดงผลของเนื้อหาทั้งหมด */
+        .content-container {
+            display: flex;
+            /* แสดงเนื้อหาเป็นแนวนอน */
+            align-items: center;
+            /* จัดกลางตามแนวตั้ง */
+            justify-content: space-between;
+            /* จัดกลางแนวนอนและเว้นระยะห่างเท่าๆ กัน */
+            width: 80%;
+            /* กำหนดความกว้างของเนื้อหา */
+            max-width: 1200px;
+            /* กำหนดความกว้างสูงสุดของเนื้อหา */
+            margin: auto;
+            /* จัดตำแหน่งกลางของหน้าเว็บ */
+            margin-top: 50px;
+            /* เพิ่มระยะห่างด้านบนของเนื้อหา */
+            padding: 10px 0;
+            /* ระยะห่างของเนื้อหาจากด้านบนและล่าง */
+
+            border-radius: 10px;
+            /* กำหนดรูปร่างมุมของกล่องเนื้อหา */
+
+        }
+
+        /* สไตล์ของส่วนซ้าย */
+
+        /* กำหนดขนาดของส่วนซ้ายและการจัดตำแหน่งของเนื้อหา */
+        .left-content {
+            flex: 1;
+            /* เพื่อให้ส่วนซ้ายขยายเต็มพื้นที่ที่ว่างอยู่ */
+            padding: 10px;
+            /* ระยะห่างของเนื้อหาภายในส่วนซ้าย */
+            text-align: center;
+            /* จัดตำแหน่งข้อความซ้าย */
+        }
+
+
+
+        /* สไตล์ของข้อมูลร้านค้า */
+
+        /* กำหนดขนาดของกล่องข้อมูลร้านค้าและการจัดตำแหน่งของเนื้อหา */
+        .store-details {
+            margin: 50px auto;
+            /* ระยะห่างของกล่องข้อมูลร้านค้าจากด้านบนและล่าง */
+            max-width: 800px;
+            /* กำหนดความกว้างสูงสุดของกล่องข้อมูลร้านค้า */
+            padding: 20px;
+            /* ระยะห่างของเนื้อหาภายในกล่องข้อมูลร้านค้า */
+            background-color: #ffffff;
+            /* สีพื้นหลังของกล่องข้อมูลร้านค้า */
+            border-radius: 10px;
+            /* กำหนดรูปร่างมุมของกล่องข้อมูลร้านค้า */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* เงาของกล่องข้อมูลร้านค้า */
+        }
+
+        .content {
+            flex: 1;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header class="navbar">
+        <%- include('../navbar/navbar.ejs') %>
+    </header>
+
+
+
+    <div class="content">
+
+        <div class="container mt-5">
+            <p class="fs-4">สินค้า</p>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
+                <% items.forEach(function(item) { %>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="<%= item.image %>" class="card-img-top" alt="Product Image">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">
+                                    <%= item.productName %>
+                                </h5>
+                                <p class="card-text flex-grow-1">
+                                    <%= item.detail %>
+                                </p>
+                                <p class="card-text">ราคา <%= item.price %>
+                                </p>
+                                <a href="/loginForm" class="btn btn-primary mt-auto">เข้าสู่ระบบเพื่อซื้อสินค้า</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% }); %>
+            </div>
+        </div>
+
+</body>
+
+</html>

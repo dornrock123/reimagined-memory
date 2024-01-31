@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/stylenavbarAdmin.css">
+    <style>
+        .search-container {
+            float: right;
+            margin-right: 10px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 6px;
+            border: none;
+            width: 200px;
+        }
+
+        .search-container button {
+            padding: 6px 10px;
+            background: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Add custom styles for the main content */
+        .main-content {
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete this product?");
+        }
+    </script>
+</head>
+
+<body>
+  <header class="navbar">
+    <%- include('../navbar/navbarAdmin.ejs') %>
+  </header>
+
+    <!-- Login Form -->
+    <div class="container mt-4">
+        <h3 class="text-center">แสดงสินค้าที่ค้นหา</h3>
+        <form class="form-inline justify-content-center mb-4" method="get" action="/searchingProduct">
+          <div class="form-group mx-sm-3">
+            <input type="text" name="q" class="form-control" placeholder="ค้นหา (ชื่อ)" value="">
+          </div>
+          <button type="submit" class="btn btn-primary">ตกลง</button> <a href="/admin/adminProducts/addProductForm" class="btn btn-success">เพิ่มProduct</a>  
+        </form>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ProductID</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Detail</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% items.forEach(function(item) { %>
+                      <tr>
+                        <td>
+                          <%= item.productsID %>
+                        </td>
+                        <td>
+                          <img src="<%= item.image %>" alt="<%= item.productsID%>" style="max-width: 100px;">
+                        </td>
+                       
+                        <td>
+                          <%= item.productName %>
+                        </td>
+                        <td>
+                          <%= item.detail %>
+                        </td>
+                        <td>
+                          <%= item.price %>
+                        </td>
+                        <td>
+                          <%= item.stock %>
+                        </td>
+                        <td><a href="/editproduct/<%= item.productsID%>">Edit</a></td>
+                      </tr>
+                      <% }); %>
+                  </tbody>
+            </table>
+
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+/* สไตล์ของหน้าหลัก */
+
+/* กำหนดแบบอักษรและขอบเขตให้กับทั้งหน้าเว็บ */
+body {
+  font-family: Arial, sans-serif; /* กำหนดแบบอักษร */
+  margin: 0; /* ไม่มีขอบส่วนว่างที่เหลือในข้างของเว็บ */
+  padding: 0; /* ไม่มีขอบส่วนว่างที่อยู่ข้างในของเว็บ */
+  background-color: #f0f0f0; /* สีพื้นหลังของหน้าเว็บ */
+}
+
+/* สไตล์ของ Header */
+header {
+  width: 100%; /* ขนาดเต็มหน้าจอ */
+ 
+  padding: 0px ; /* ระยะห่างของเนื้อหาใน Header */
+}
+
+/* กำหนดสีของข้อความใน Navbar */
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff; /* สีข้อความขาวใน Navbar */
+}
+
+/* กำหนดสีของปุ่มใน Navbar */
+.navbar-dark .navbar-toggler-icon {
+  background-color: #fff; /* สีของปุ่มขาวใน Navbar */
+}
+
+
+
+
+

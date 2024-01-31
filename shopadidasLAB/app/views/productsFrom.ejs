@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/stylenevbarCustomer.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Gaming-Gear Store</title>
+    <!-- เราจะใช้ CDN สำหรับ Bootstrap และ Font Awesome ตามที่คุณได้ใช้ไว้แล้ว -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mitr&display=swap');
+
+        * {
+            font-family: 'Mitr', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        footer {
+            flex-shrink: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+       
+        <!-- views/navbar.ejs -->
+        <script>
+            // เพิ่มเหตุการณ์ "click" ให้กับทุกลิงก์ใน Navbar
+            document.addEventListener("DOMContentLoaded", function () {
+                const navLinks = document.querySelectorAll(".nav-link");
+                navLinks.forEach((link) => {
+                    link.addEventListener("click", function () {
+                        // ลบคลาส "active" ที่อาจมีอยู่ก่อนหน้า
+                        navLinks.forEach((navLink) => {
+                            navLink.classList.remove("active");
+                        });
+                        // เพิ่มคลาส "active" ให้กับลิงก์ที่ถูกคลิก
+                        link.classList.add("active");
+                    });
+                });
+            });
+        </script>
+
+<%- include('../navbar/navbarCustomer.ejs') %>
+    </header>
+
+
+    <div class="content">
+        <div class="container mt-5">
+            <p class="fs-4">รายการสินค้า</p>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
+                <% items.forEach(function(item, index) { %>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="<%= item.image %>" class="card-img-top" alt="Product Image">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">
+                                    <%= item.productName %>
+                                </h5>
+                                <p class="card-text flex-grow-1">
+                                    <%= item.detail %>
+                                </p>
+                                <p class="card-text">ราคา <%= item.price %>
+                                </p>
+                                <a href="#" class="btn btn-primary mt-auto"
+                                    onclick="addToCart('<%= item.productsID%>', '<%= item.productName%>', '<%= item.price%>' );">
+                                    Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% }); %>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var shoppingCart = [];
+
+        function addToCart(productId, productName, productPrice) {
+            var isItemInCart = false;
+            for (var i = 0; i < shoppingCart.length; i++) {
+                if (shoppingCart[i].productId === productId) {
+                    isItemInCart = true;
+                    break;
+                }
+            }
+
+            if (!isItemInCart) {
+                shoppingCart.push({
+                    productId: productId,
+                    productName: productName,
+                    productPrice: productPrice
+                });
+
+                updateCartCount();
+                updateProductIDsInput(); // Call a new function to update the hidden input field
+            }
+        }
+
+        function updateCartCount() {
+            var cartCount = document.getElementById('cart-count');
+            cartCount.textContent = " " + shoppingCart.length;
+        }
+
+        function viewCart() {
+            // You can implement your logic here to display the shopping cart items to the user.
+            // For example, you could create a modal or redirect the user to a new page.
+            console.log(shoppingCart);
+        }
+
+        function updateProductIDsInput() {
+            // Get the hidden input field
+            var productIDsInput = document.getElementById('productIDs');
+
+            // Get an array of product IDs from the shoppingCart array
+            var productIDsArray = shoppingCart.map(item => item.productId);
+
+            // Set the value of the hidden input field with a comma-separated list of product IDs
+            productIDsInput.value = productIDsArray.join(',');
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+
+<nav>
+    <ul>
+        <li><a href="/customer/productsFrom">Products</a></li>
+        <li><a href="/logout">Logout</a></li>
+        
+        <form id="cart-form" action="/orders" method="get">
+            <input type="hidden" name="productIDs" id="productIDs" value="">
+            <input type="hidden" name="quantity" id="quantity" value="1">
+            <button class="btn btn-outline-primary btn-lg me-2" onclick="viewCart()"><span
+                class="fas fa-shopping-cart"><span id="cart-count"> 0</span></span></button>
+        </form>
+        
+        
+    </ul>
+</nav>
+

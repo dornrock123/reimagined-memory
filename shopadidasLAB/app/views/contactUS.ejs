@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylenavbar.css">
+  <title>Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+
+  <style>
+    /* สไตล์ของหน้าหลัก */
+
+    /* กำหนดแบบอักษรและขอบเขตให้กับทั้งหน้าเว็บ */
+    body {
+      font-family: Arial, sans-serif;
+      /* กำหนดแบบอักษร */
+      margin: 0;
+      /* ไม่มีขอบส่วนว่างที่เหลือในข้างของเว็บ */
+      padding: 0;
+      /* ไม่มีขอบส่วนว่างที่อยู่ข้างในของเว็บ */
+      background-color: #f0f0f0;
+      /* สีพื้นหลังของหน้าเว็บ */
+    }
+
+    /* สไตล์ของคอนเทนเนอร์ทั้งหมด */
+
+    /* จัดตำแหน่งและการแสดงผลของเนื้อหาทั้งหมด */
+    .content-container {
+      display: flex;
+      /* แสดงเนื้อหาเป็นแนวนอน */
+      align-items: center;
+      /* จัดกลางตามแนวตั้ง */
+      justify-content: space-between;
+      /* จัดกลางแนวนอนและเว้นระยะห่างเท่าๆ กัน */
+      width: 80%;
+      /* กำหนดความกว้างของเนื้อหา */
+      max-width: 1200px;
+      /* กำหนดความกว้างสูงสุดของเนื้อหา */
+      margin: auto;
+      /* จัดตำแหน่งกลางของหน้าเว็บ */
+      margin-top: 50px;
+      /* เพิ่มระยะห่างด้านบนของเนื้อหา */
+      padding: 10px 0;
+      /* ระยะห่างของเนื้อหาจากด้านบนและล่าง */
+
+      border-radius: 10px;
+      /* กำหนดรูปร่างมุมของกล่องเนื้อหา */
+
+    }
+
+    /* สไตล์ของส่วนซ้าย */
+
+    /* กำหนดขนาดของส่วนซ้ายและการจัดตำแหน่งของเนื้อหา */
+    .left-content {
+      flex: 1;
+      /* เพื่อให้ส่วนซ้ายขยายเต็มพื้นที่ที่ว่างอยู่ */
+      padding: 10px;
+      /* ระยะห่างของเนื้อหาภายในส่วนซ้าย */
+      text-align: center;
+      /* จัดตำแหน่งข้อความซ้าย */
+    }
+
+
+
+    /* สไตล์ของข้อมูลร้านค้า */
+
+    /* กำหนดขนาดของกล่องข้อมูลร้านค้าและการจัดตำแหน่งของเนื้อหา */
+    .store-details {
+      margin: 50px auto;
+      /* ระยะห่างของกล่องข้อมูลร้านค้าจากด้านบนและล่าง */
+      max-width: 800px;
+      /* กำหนดความกว้างสูงสุดของกล่องข้อมูลร้านค้า */
+      padding: 20px;
+      /* ระยะห่างของเนื้อหาภายในกล่องข้อมูลร้านค้า */
+      background-color: #ffffff;
+      /* สีพื้นหลังของกล่องข้อมูลร้านค้า */
+      border-radius: 10px;
+      /* กำหนดรูปร่างมุมของกล่องข้อมูลร้านค้า */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* เงาของกล่องข้อมูลร้านค้า */
+    }
+
+    .content {
+      flex: 1;
+    }
+  </style>
+
+</head>
+
+<body>
+  <header class="navbar">
+    <%- include('../navbar/navbar.ejs') %>
+  </header>
+
+
+  <div class="content">
+    <div class="container mt-5">
+      <p class="fs-4">สมาชิก</p>
+      <div class="row row-cols-1 row-cols-md-4 g-5">
+        <div class="col-md-3">
+          <div class="card">
+            <img src="https://cdn.discordapp.com/attachments/1142372900859564112/1143791621717110837/Krit.jpg"
+              class="card-img-top" alt=" Image" style="max-width: 500px; max-height: 340px;">
+            <div class="card-body">
+              <h5 class="card-title">นายกฤตภาส เซ่งย่อง</h5>
+              <p class="card-text">Phonenumber: 062-385-9611 </p>
+              <p class="card-text">116410906014-8 </p>
+              <p class="card-text">สาขาเทคโนโลยีสารสนเทศและการสื่อสารดิจิทัล </p>
+            </div>
+          </div>
+        </div>
+        <!-- ทำซ้ำเพื่อสร้างกล่องสินค้าเพิ่มเติมในแถวเดียวกัน ... -->
+        <div class="col-md-3">
+          <div class="card">
+            <img src="https://cdn.discordapp.com/attachments/1142372900859564112/1143791621465448468/bingo.jpg"
+              class="card-img-top" alt="Product Image" style="max-width: 500px; max-height: 340px;">
+            <div class="card-body">
+              <h5 class="card-title">นายทิเบต ระโหฐาน</h5>
+              <p class="card-text">Phonenumber: 064-335-4433 </p>
+              <p class="card-text">116410906117-9
+              </p>
+              <p class="card-text">สาขาเทคโนโลยีสารสนเทศและการสื่อสารดิจิทัล </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img
+              src="https://cdn.discordapp.com/attachments/1142372900859564112/1143791907651198996/369824930_324619959922946_1915479622138572044_n.jpg"
+              class="card-img-top" alt="Product Image" style="max-width: 500px; max-height: 340px;">
+            <div class="card-body">
+              <h5 class="card-title">นายกฤศ เนินพลอย</h5>
+              <p class="card-text">Phonenumber: 065-915-6312 </p>
+              <p class="card-text">116410906021-3</p>
+              <p class="card-text">สาขาเทคโนโลยีสารสนเทศและการสื่อสารดิจิทัล </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img src="https://cdn.discordapp.com/attachments/1142372900859564112/1143792364197007420/getpersonimage.png"
+              class="card-img-top" alt="Product Image" style="max-width: 500px; max-height: 340px;">
+            <div class="card-body">
+              <h5 class="card-title">นายจิรายุ ธีระวรรประเสริฐ</h5>
+              <p class="card-text">Phonenumber: 095-651-6325 </p>
+              <p class="card-text">116410906129-4
+              </p>
+              <p class="card-text">สาขาเทคโนโลยีสารสนเทศและการสื่อสารดิจิทัล </p>
+            </div>
+          </div>
+        </div>
+        <!-- ทำซ้ำเพื่อสร้างกล่องสินค้าเพิ่มเติมในแถวเดียวกัน ... -->
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

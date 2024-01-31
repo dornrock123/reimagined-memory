@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สมัครสมาชิกเสร็จสิ้น</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+.notification {
+  background-color: #3498db;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notification p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.notification p::after {
+  content: "...";
+  animation: ellipsis 1s infinite;
+}
+
+@keyframes ellipsis {
+  0%,
+  100% {
+    content: ".";
+  }
+  33% {
+    content: "..";
+  }
+  66% {
+    content: "...";
+  }
+}
+
+  </style>
+
+</head>
+<body>
+  <div class="notification">
+    <p>สมัครสมาชิกเสร็จสิ้น โปรดรอสักครู่</p>
+  </div>
+  <script>
+    setTimeout(function() {
+      window.location.href = "loginForm";
+    }, 2500);
+  </script>
+</body>
+</html>

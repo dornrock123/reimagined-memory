@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/stylenavbarAdmin.css">
+ 
+  <style>
+    .left-aligned-text {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <%- include('../navbar/navbarAdmin.ejs') %>
+  </header>
+ 
+  <!-- Main content -->
+  <div class="main-content">
+    <center>
+      <h1>แก้ไขAccounts</h1>
+      <div class="container edit-form">
+        <form method="POST">
+          <table class="table">
+            <thead>
+              <tr>
+                  <th>AccountID</th>
+                  <th>Name</th>
+                  <th>Lastname</th>
+                  <th>Username</th>
+                  <th>Phone Number</th>
+                  <th>Types</th>
+                  <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input class="form-control" name="accountID" value="<%=data.accountID%>"></td> 
+                <td><input class="form-control" name="name" value="<%=data.name%>"></td> 
+                <td><input class="form-control" name="lastname" value="<%=data.lastname%>"></td>
+                <td><input class="form-control" name="username" value="<%=data.username%>"></td>  
+                <td><input class="form-control" name="tel" value="<%=data.tel%>"></td> 
+                <td><input class="form-control" name="types" value="<%=data.types%>"></td>  
+                <td><button type="button" class="btn btn-primary" onclick="confirmEdit()">Edit</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </center>
+  </div>
+  <script>
+    // JavaScript function for confirmation before editing
+    function confirmEdit() {
+      var confirmed = confirm("คุณต้องการแก้ไขข้อมูลAccountsใช่ไหม?");
+      if (confirmed) {
+        document.querySelector('form').submit();
+      }
+    }
+  </script>
+</body>
+</html>
