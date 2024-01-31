@@ -1,4 +1,4 @@
-![image](https://github.com/dornrock123/shoes-website/assets/60999611/9525867e-e3c6-430f-aa06-5142602b76ff)![image](https://github.com/dornrock123/shoes-website/assets/60999611/2a34cbbc-b171-4d8d-86c0-5a5df1290452)# reimagined-memory
+# reimagined-memory
 practice
 
 <h1>main</h1>
